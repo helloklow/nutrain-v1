@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2020-04-12
+  meal: MyString
+  ingredients: MyString
+  nutrition: MyString
+  notes: 
+  target: MyString
+
+two:
+  date: 2020-04-12
+  meal: MyString
+  ingredients: MyString
+  nutrition: MyString
+  notes: 
+  target: MyString
