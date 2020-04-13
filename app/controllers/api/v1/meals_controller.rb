@@ -5,7 +5,7 @@ class Api::V1::MealsController < ApplicationController
     def index
         if logged_in?
             @meals = current_user.meals
-            render json: FlightSerializer.new(@meals)
+            render json: MealSerializer.new(@meals)
         else 
             render json: {
                 error: "Must be logged in to view meals"
