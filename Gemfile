@@ -11,11 +11,13 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 4.1'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
 # Use to allow API to return data in JSON for frontend use
 gem 'fast_jsonapi'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+# Use to load environment variables on development
+gem 'dotenv-rails', groups: [:development, :test]
+# Use to clean database state during tests
+gem 'database_cleaner'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
