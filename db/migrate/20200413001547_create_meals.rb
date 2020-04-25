@@ -5,7 +5,7 @@ class CreateMeals < ActiveRecord::Migration[6.0]
       t.string :meal
       t.string :ingredients
       t.string :nutrition
-      t.text, :notes
+      t.text :notes
       t.string :target
 
       t.timestamps
