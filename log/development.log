@@ -306,3 +306,45 @@ Migrating to AddUserIdToWorkouts (20200425222349)
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mMeal Create (0.3ms)[0m  [1m[32mINSERT INTO "meals" ("date", "meal", "ingredients", "nutrition", "notes", "target", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2020-04-22"], ["meal", "Dinner"], ["ingredients", "2 slices whole wheat bread, 2 tbsp hummus, 3 oz red peppers, 0.25 cup onions, 0.5 cup spinach"], ["nutrition", "233 calories, 36.9g carbs, 4.9g fats, 10.1g proteins"], ["notes", "Red bell peppers can be roasted or raw."], ["target", "1400 calories, 45% carbs, 25% fats, 30% proteins"], ["created_at", "2020-04-25 22:33:23.975561"], ["updated_at", "2020-04-25 22:33:23.975561"], ["user_id", 1]]
   [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/api/v1/meals" for ::1 at 2020-04-25 16:33:55 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::MealsController#index as HTML
+Completed 500 Internal Server Error in 67ms (ActiveRecord: 0.0ms | Allocations: 35964)
+
+
+  
+NoMethodError (undefined method `logged_in?' for #<Api::V1::MealsController:0x00007fb4fa114368>
+Did you mean?  logger):
+  
+app/controllers/api/v1/meals_controller.rb:6:in `index'
+Started GET "/api/v1/meals" for ::1 at 2020-04-25 16:34:13 -0600
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::MealsController#index as HTML
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 0.0ms | Allocations: 70496)
+
+
+  
+NameError (undefined local variable or method `current_user' for #<Api::V1::MealsController:0x00007fb4f6cc5878>):
+  
+app/controllers/api/v1/meals_controller.rb:7:in `index'
+Started GET "/api/v1/meals" for ::1 at 2020-04-25 16:34:40 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::MealsController#index as HTML
+  [1m[36mMeal Load (0.3ms)[0m  [1m[34mSELECT "meals".* FROM "meals"[0m
+  ↳ app/controllers/api/v1/meals_controller.rb:9:in `index'
+Completed 500 Internal Server Error in 18ms (Views: 10.2ms | ActiveRecord: 1.3ms | Allocations: 9092)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/api/v1/meals_controller.rb:11:in `index'
+Started GET "/api/v1/meals" for ::1 at 2020-04-25 16:34:57 -0600
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::MealsController#index as HTML
+  [1m[36mMeal Load (0.2ms)[0m  [1m[34mSELECT "meals".* FROM "meals"[0m
+  ↳ app/controllers/api/v1/meals_controller.rb:9:in `index'
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.6ms | Allocations: 8509)
+
+

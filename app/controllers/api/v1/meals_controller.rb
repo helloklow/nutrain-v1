@@ -3,14 +3,15 @@ class Api::V1::MealsController < ApplicationController
     
     # GET /meals
     def index
-        if logged_in?
-            @meals = current_user.meals
+        #if logged_in?
+            @meals = Meal.all
+            #@meals = current_user.meals
             render json: MealSerializer.new(@meals)
-        else 
-            render json: {
-                error: "Must be logged in to view meals"
-            }
-        end
+        #else 
+            # render json: {
+            #     error: "Must be logged in to view meals"
+            # }
+        #end
     end
     
     # GET /meals/1
