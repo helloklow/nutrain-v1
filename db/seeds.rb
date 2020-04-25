@@ -9,3 +9,5 @@
 require 'database_cleaner'
 DatabaseCleaner.clean_with(:truncation)
 
+scout = User.create!(name: "Kelsey", email: "scout@email.com", username: "scout", password: "scout")
+roamer = User.create!(name: "Conrad", email: "roamer@email.com", username: "ranger", password: "ranger")
