@@ -13,44 +13,44 @@ class Api::V1::WorkoutsController < ApplicationController
         end
     end
     
-    # GET /meals/1
+    # GET /workouts/1
     def show
-        meal_json = MealSerializer.new(@meal)
-        render json: meal_json
+        workout_json = WorkoutSerializer.new(@workout)
+        render json: workout_json
     end
     
-    # POST /meals
+    # POST /workouts
     def create
-        @meal = current_user.meals.build(meal_params)
-        if @meal.save
-            render json: MealSerializer.new(@meal), status: :created
+        @workout = current_user.workouts.build(workout_params)
+        if @workout.save
+            render json: WorkoutSerializer.new(@workout), status: :created
         else
             resp = {
-                error: @meal.errors.full_messages.to_sentence
+                error: @workout.errors.full_messages.to_sentence
             }
             render json: resp, status: :unprocessable_entity
         end
     end
 
-    # PATCH/PUT /meals/1
+    # PATCH/PUT /workouts/1
     def update
-        if @meal.update(meal_params)
-            render json:  MealSerializer.new(@meal), status: :ok
+        if @workout.update(workout_params)
+            render json:  WorkoutSerializer.new(@workout), status: :ok
         else
             resp = {
-                error: @meal.errors.full_messages.to_sentence
+                error: @workout.errors.full_messages.to_sentence
             }
             render json: resp, status: :unprocessable_entity
         end
     end
 
-    # DELETE /flights/1
+    # DELETE /workouts/1
     def destroy
-        if @meal.destroy
-            render json:  {message: "Meal successfully destroyed"}, status: :ok
+        if @workout.destroy
+            render json:  {message: "Workout successfully destroyed"}, status: :ok
         else
             resp = {
-                error: "Meal could not be found and was not destroyed"
+                error: "Workout could not be found and was not destroyed"
             }
             render json: resp, status: :unprocessable_entity
         end
@@ -58,12 +58,12 @@ class Api::V1::WorkoutsController < ApplicationController
     
     private
     # Use callbacks to share common setup or constraints between actions.
-    def set_meal
-        @meal = Meal.find(params[:id])
+    def set_workout
+        @workout = Workout.find(params[:id])
     end
     
     # Only allow a trusted parameter "white list" through.
-    def meal_params
-        params.require(:meal).permit(:date, :meal, :ingredients, :nutrition, :notes, :target)
+    def workout_params
+        params.require(:workout).permit(:date, :exercise, :reps, :sets, :status, :notes, :user_id)
     end
 end
