@@ -3,14 +3,15 @@ class Api::V1::WorkoutsController < ApplicationController
     
     # GET /workouts
     def index
-        if logged_in?
-            @workouts = current_user.workouts
+        #if logged_in?
+            @workouts = Workout.all
+            #@workouts = current_user.workouts
             render json: WorkoutSerializer.new(@workouts)
-        else 
-            render json: {
-                error: "Must be logged in to view workouts"
-            }
-        end
+        # else 
+        #     render json: {
+        #         error: "Must be logged in to view workouts"
+        #     }
+        # end
     end
     
     # GET /workouts/1
