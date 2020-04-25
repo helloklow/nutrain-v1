@@ -107,3 +107,31 @@ Migrating to CreateWorkouts (20200413013109)
   [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/users/2" for ::1 at 2020-04-25 15:54:04 -0600
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:33:in `set_user'
+Completed 404 Not Found in 30ms (ActiveRecord: 1.2ms | Allocations: 3971)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=2):
+  
+app/controllers/api/v1/users_controller.rb:33:in `set_user'
+Started GET "/api/v1/users" for ::1 at 2020-04-25 15:54:08 -0600
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 5ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 1161)
+
+
+Started GET "/api/v1/users" for ::1 at 2020-04-25 15:55:18 -0600
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:7:in `index'
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.1ms | Allocations: 805)
+
+
