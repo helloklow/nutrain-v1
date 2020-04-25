@@ -4,6 +4,6 @@ class User < ApplicationRecord
     has_many :meals
     has_many :workouts
 
-    validates :name, :email, presence: true
+    validates :first_name, :last_name, :email, presence: true
     validates :email, uniqueness: true
 end
