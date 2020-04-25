@@ -348,3 +348,68 @@ Processing by Api::V1::MealsController#index as HTML
 Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.6ms | Allocations: 8509)
 
 
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (1.6ms)[0m  [1m[31mDELETE FROM "users";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (1.6ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'users';[0m
+  [1m[35m (0.8ms)[0m  [1m[31mDELETE FROM "meals";[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.9ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'meals';[0m
+  [1m[35m (1.1ms)[0m  [1m[31mDELETE FROM "workouts";[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT name FROM sqlite_master WHERE type='table' AND name='sqlite_sequence';[0m
+  [1m[35m (0.2ms)[0m  [1m[31mDELETE FROM sqlite_sequence where name = 'workouts';[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "scout@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kelsey"], ["last_name", "Low"], ["email", "scout@email.com"], ["password_digest", "$2a$12$bpJ/JuHAzaZBb.cZVozGyOEeZKr.8g77FlFdFn6KYMegtOAiPwR/C"], ["created_at", "2020-04-25 23:22:21.513572"], ["updated_at", "2020-04-25 23:22:21.513572"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "roamer@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Conrad"], ["last_name", "Porter"], ["email", "roamer@email.com"], ["password_digest", "$2a$12$vfHApqNBod3AxheQaE5VhuU0OS3bx6TsTma/0aXQyJqsypUeEWz52"], ["created_at", "2020-04-25 23:22:21.731603"], ["updated_at", "2020-04-25 23:22:21.731603"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mMeal Create (0.4ms)[0m  [1m[32mINSERT INTO "meals" ("date", "meal", "ingredients", "nutrition", "notes", "target", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2020-04-20"], ["meal", "Breakfast"], ["ingredients", "1 tsp butter, 2 large eggs, 1 dash pepper, 1 dash salt, 0.25 tsp garlic powder"], ["nutrition", "197 calories, 1.4g carbs, 14.5g fats, 14.2g proteins"], ["notes", ""], ["target", "2000 calories, 50% carbs, 25% fats, 25% proteins"], ["created_at", "2020-04-25 23:22:21.779070"], ["updated_at", "2020-04-25 23:22:21.779070"], ["user_id", 2]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMeal Create (0.3ms)[0m  [1m[32mINSERT INTO "meals" ("date", "meal", "ingredients", "nutrition", "notes", "target", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2020-04-22"], ["meal", "Lunch"], ["ingredients", "1 cup 1% cottage cheese, 1 cup strawberries, 2 tbsp maple syrup"], ["nutrition", "313 calories, 44g carbs, 2.8g fats, 29g proteins"], ["notes", "Love this recipe! Optionally include 1 tsp vanilla extract for more flavor."], ["target", "1400 calories, 45% carbs, 25% fats, 30% proteins"], ["created_at", "2020-04-25 23:22:21.785404"], ["updated_at", "2020-04-25 23:22:21.785404"], ["user_id", 1]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mMeal Create (0.3ms)[0m  [1m[32mINSERT INTO "meals" ("date", "meal", "ingredients", "nutrition", "notes", "target", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2020-04-22"], ["meal", "Dinner"], ["ingredients", "2 slices whole wheat bread, 2 tbsp hummus, 3 oz red peppers, 0.25 cup onions, 0.5 cup spinach"], ["nutrition", "233 calories, 36.9g carbs, 4.9g fats, 10.1g proteins"], ["notes", "Red bell peppers can be roasted or raw."], ["target", "1400 calories, 45% carbs, 25% fats, 30% proteins"], ["created_at", "2020-04-25 23:22:21.791298"], ["updated_at", "2020-04-25 23:22:21.791298"], ["user_id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mWorkout Create (0.3ms)[0m  [1m[32mINSERT INTO "workouts" ("date", "exercise", "reps", "sets", "status", "notes", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2020-04-20"], ["exercise", "Tricep push ups"], ["reps", "20"], ["sets", "5"], ["status", 1], ["notes", "Mix with offset push ups next time!"], ["created_at", "2020-04-25 23:22:21.804783"], ["updated_at", "2020-04-25 23:22:21.804783"], ["user_id", 2]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mWorkout Create (0.3ms)[0m  [1m[32mINSERT INTO "workouts" ("date", "exercise", "reps", "sets", "status", "notes", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2020-04-20"], ["exercise", "Strict leg lowers"], ["reps", "20"], ["sets", "5"], ["status", 1], ["notes", "Use 5 lb ankle weights for increased difficulty."], ["created_at", "2020-04-25 23:22:21.810168"], ["updated_at", "2020-04-25 23:22:21.810168"], ["user_id", 2]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkout Create (0.3ms)[0m  [1m[32mINSERT INTO "workouts" ("date", "exercise", "reps", "sets", "status", "notes", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["date", "2020-04-22"], ["exercise", "Frenchies"], ["reps", "5"], ["sets", "3"], ["status", 1], ["notes", "3 second hold each at 270, 90, and full lock off."], ["created_at", "2020-04-25 23:22:21.825199"], ["updated_at", "2020-04-25 23:22:21.825199"], ["user_id", 1]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/api/v1/meals" for ::1 at 2020-04-25 17:22:23 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::V1::MealsController#index as HTML
+  [1m[36mMeal Load (0.2ms)[0m  [1m[34mSELECT "meals".* FROM "meals"[0m
+  ↳ app/controllers/api/v1/meals_controller.rb:9:in `index'
+Completed 200 OK in 13ms (Views: 9.3ms | ActiveRecord: 0.2ms | Allocations: 8082)
+
+
+Started GET "/api/v1/workouts" for ::1 at 2020-04-25 17:22:34 -0600
+Processing by Api::V1::WorkoutsController#index as HTML
+  [1m[36mWorkout Load (0.2ms)[0m  [1m[34mSELECT "workouts".* FROM "workouts"[0m
+  ↳ app/controllers/api/v1/workouts_controller.rb:9:in `index'
+Completed 200 OK in 20ms (Views: 15.6ms | ActiveRecord: 0.8ms | Allocations: 8267)
+
+
