@@ -7,11 +7,8 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        Nutrain
         <Router>
-          <Switch>
-            <Route exact path='/login' component={Login} />
-          </Switch>
+          <Route exact path='/login' component={Login} />
         </Router>
       </div>
     )

@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux"
 import {login} from '../actions/userActions'
+import {updateLoginForm} from '../actions/loginActions'
 
 const Login = ({loginData, login, updateLoginForm}) => {
     const {email, password} = loginData
@@ -30,4 +31,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {login})(Login)
+export default connect(mapStateToProps, {login, updateLoginForm})(Login)
